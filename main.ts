@@ -1,8 +1,8 @@
-import DiscordJS, { Intents } from 'discord.js'
+import Discord, { Intents } from 'discord.js'
 import dotenv from 'dotenv'
 dotenv.config()
 
-const client = new DiscordJS.Client({
+const client = new Discord.Client({
     intents: [
         Intents.FLAGS.GUILDS,
         Intents.FLAGS.GUILD_MESSAGES,
@@ -31,13 +31,13 @@ client.on('ready', () => {
                 name: 'num1',
                 description: 'First Number',
                 required: true,
-                type: DiscordJS.Constants.ApplicationCommandOptionTypes.NUMBER
+                type: Discord.Constants.ApplicationCommandOptionTypes.NUMBER
             },
             {
                 name: 'num2',
                 description: 'Second Number',
                 required: true,
-                type: DiscordJS.Constants.ApplicationCommandOptionTypes.NUMBER
+                type: Discord.Constants.ApplicationCommandOptionTypes.NUMBER
             },
         ]
     })
