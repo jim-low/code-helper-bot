@@ -1,0 +1,28 @@
+{
+  "name": "code-helper-bot",
+  "version": "1.0.0",
+  "description": "Discord Bot to aid users in coding or programming questions",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "tsc --watch",
+    "server": "nodemon main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jim-low/code-helper-bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jim-low/code-helper-bot/issues"
+  },
+  "homepage": "https://github.com/jim-low/code-helper-bot#readme",
+  "dependencies": {
+    "discord.js": "^13.6.0",
+    "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
