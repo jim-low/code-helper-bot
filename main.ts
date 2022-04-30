@@ -12,7 +12,7 @@ const client = new Discord.Client({
 const programmingLanguages = ['C', 'C++', 'Javascript', 'Typescript', 'Java', 'Python', 'Lua', 'PHP']
 
 client.on('ready', () => {
-    console.log('bot is ready!!')
+    console.log('bot is ready')
 
     // guild - recommended for development
     const guildID = process.env.GUILD_ID ?? ''
