@@ -10,7 +10,6 @@ const client = new Discord.Client({
     ]
 })
 const programmingLanguages = ['C', 'C++', 'Javascript', 'Typescript', 'Java', 'Python', 'Lua', 'PHP']
-const CHT_SH_API = 'https://cht.sh'
 
 client.on('ready', () => {
     console.log('bot is ready!!')
@@ -49,10 +48,6 @@ client.on('ready', () => {
         description: 'List Known Programming Languages.',
     })
 
-    commands?.create({
-        name: 'cheatsheet',
-        description: 'Cheat Sheet API',
-    })
     // global - recommended for publishing
 })
 
@@ -89,15 +84,6 @@ client.on('interactionCreate', async (interaction) => {
     if (commandName === 'languages') {
         interaction.reply({
             content: `Here are your list of languages: ${programmingLanguages.join(', ')}`
-        })
-    }
-
-    if (commandName === 'cheatsheet') {
-        exec(`curl ${CHT_SH_API}/c/:learn`, (err, stdout, stderr) => {
-            // console.log(stdout)
-            interaction.reply({
-                content: stdout.substring(0, 2000)
-            })
         })
     }
 })
