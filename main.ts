@@ -10,6 +10,13 @@ const client = new Discord.Client({
     ]
 })
 const programmingLanguages = ['C', 'C++', 'Javascript', 'Typescript', 'Java', 'Python', 'Lua', 'PHP']
+const roastLines = [
+    'B stands for stoobid',
+    'STOOBID',
+    'Failure',
+    'i used to walk 20 miles, uphill, both ways, 20 hours a day, with one foot, my other foot starting a bizznes',
+    '9 years old, not a child anymore, go get a job',
+]
 
 client.on('ready', () => {
     console.log('bot is ready')
@@ -48,6 +55,11 @@ client.on('ready', () => {
         description: 'List Known Programming Languages.',
     })
 
+    commands?.create({
+        name: 'stevenheroast',
+        description: 'Random Roast Line from Steven He',
+    })
+
     // global - recommended for publishing
 })
 
@@ -62,6 +74,13 @@ client.on('interactionCreate', async (interaction) => {
         interaction.reply({
             content: 'pong',
             ephemeral: true
+        })
+    }
+
+    if (commandName === 'stevenheroast') {
+        interaction.reply({
+            content: roastLines[Math.floor(Math.random() * roastLines.length)],
+            ephemeral: false
         })
     }
 
