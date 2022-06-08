@@ -15,7 +15,15 @@ const roastLines = [
     'STOOBID',
     'Failure',
     'i used to walk 20 miles, uphill, both ways, 20 hours a day, with one foot, my other foot starting a bizznes',
-    '9 years old, not a child anymore, go get a job',
+    'you\'re 9 years old, not a child anymore, go get a job',
+]
+const failureLines = [
+    'you FAILURE',
+    'how many times can you be a FAILURE',
+    'F A I L U R E',
+    'my cat can do better than you lah',
+    'i\'d rather watch bok choi grow',
+    'you want to be failure, go be failure',
 ]
 
 client.on('ready', () => {
@@ -60,6 +68,19 @@ client.on('ready', () => {
         description: 'Random Roast Line from Steven He',
     })
 
+    commands?.create({
+        name: 'failure',
+        options: [
+            {
+                name: 'user',
+                description: 'User to be called failure',
+                required: true,
+                type: Discord.Constants.ApplicationCommandOptionTypes.USER
+            },
+        ],
+        description: 'Call a user a failure',
+    })
+
     // global - recommended for publishing
 })
 
@@ -80,6 +101,15 @@ client.on('interactionCreate', async (interaction) => {
     if (commandName === 'stevenheroast') {
         interaction.reply({
             content: roastLines[Math.floor(Math.random() * roastLines.length)],
+            ephemeral: false
+        })
+    }
+
+    if (commandName === 'failure') {
+        const user = options.getUser('user')
+
+        interaction.reply({
+            content: `${user?.toString()} ${failureLines[Math.floor(Math.random() * failureLines.length)]}`,
             ephemeral: false
         })
     }
