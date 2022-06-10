@@ -109,7 +109,7 @@ client.on('interactionCreate', async (interaction) => {
         const user = options.getUser('user')
 
         interaction.reply({
-            content: `${user?.toString()} ${failureLines[Math.floor(Math.random() * failureLines.length)]}`,
+            content: user?.username === 'Jim Low' ? `${user?.toString()} I'm proud of you :)` : `${user?.toString()} ${failureLines[Math.floor(Math.random() * failureLines.length)]}`,
             ephemeral: false
         })
     }
