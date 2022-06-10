@@ -64,7 +64,15 @@ client.on('ready', () => {
     })
 
     commands?.create({
-        name: 'stevenheroast',
+        name: 'roast',
+        options: [
+            {
+                name: 'user',
+                description: 'User to be called failure',
+                required: true,
+                type: Discord.Constants.ApplicationCommandOptionTypes.USER
+            },
+        ],
         description: 'Random Roast Line from Steven He',
     })
 
@@ -98,9 +106,11 @@ client.on('interactionCreate', async (interaction) => {
         })
     }
 
-    if (commandName === 'stevenheroast') {
+    if (commandName === 'roast') {
+        const user = options.getUser('user')
+
         interaction.reply({
-            content: roastLines[Math.floor(Math.random() * roastLines.length)],
+            content: `${user?.toString()} ${roastLines[Math.floor(Math.random() * roastLines.length)]}`,
             ephemeral: false
         })
     }
