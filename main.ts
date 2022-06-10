@@ -1,5 +1,4 @@
 import Discord, { Intents } from 'discord.js'
-import { exec } from 'child_process'
 import dotenv from 'dotenv'
 dotenv.config()
 
